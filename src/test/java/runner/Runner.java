@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/system/resources/features",
-        glue = "system/stepDefinitions",
-        tags = "@TeacherFirstExample",
+        features = "src/test/java/resources/features",
+        glue = "stepDefinitions",
+        tags = "@AirbnbSignUp",
         monochrome = false,
         plugin = {"pretty"},
         snippets = CucumberOptions.SnippetType.CAMELCASE

@@ -7,13 +7,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class InitProcess {
-    public static WebDriver createBrowser() {
-        String airBnbUrl = "https://www.airbnb.com.br";
+    private WebDriver driver;
+
+    public InitProcess(){
         System.setProperty("webdriver.chrome.driver", "/home/dereck/Documents/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(airBnbUrl);
+        driver = new ChromeDriver();
+    }
+
+    public void createBrowser() {
+        String airBnbUrl = "https://www.airbnb.com.br";
+        this.driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        this.driver.manage().window().maximize();
+        this.driver.get(airBnbUrl);
+    }
+
+    public WebDriver getDriver(){
         return driver;
     }
 }
