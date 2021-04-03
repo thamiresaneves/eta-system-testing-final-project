@@ -11,23 +11,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class AirbnbHome extends BasePage {
-    public AirbnbHome(WebDriver driver){
+    public AirbnbHome(WebDriver driver) {
         super(driver);
     }
 
-    public WebElement getSearchField(){
+    public WebElement getSearchField() {
         return driver.findElement(By.cssSelector(Constants.SEARCH_FIELD));
     }
 
-    public WebElement getSearchButton(){
+    public WebElement getSearchButton() {
         return driver.findElement(By.cssSelector(Constants.SEARCH_BUTTON));
     }
 
-    public WebElement getBeAHost(){
-        return driver.findElement(By.cssSelector(Constants.BE_A_HOST));
+    public WebElement getHomeMenuButton() {
+
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(Constants.HOME_MENU_BUTTON)));
+        return element;
+
     }
 
-    public List<WebElement> getLocationsList(){
+    public AirbnbHost clickOnBecomeHostBtn() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(Constants.BE_A_HOST_BUTTON)));
+        element.click();
+        return new AirbnbHost(driver);
+    }
+
+    public List<WebElement> getLocationsList() {
         return driver.findElements(By.cssSelector(Constants.LOCATIONS_LIST));
     }
 }

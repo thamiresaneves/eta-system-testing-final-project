@@ -3,7 +3,7 @@ Feature: As a user admin I want to search for a location so I can see all accomm
 
   @SearchForValidLocation
   Scenario:
-    Given  The user is in airbnb home page
+    Given  The search panel is being displayed
     When   Fills the search field with "Recife"
     And    Clicks on button
     Then   A list with 20 accommodations should be displayed per page
