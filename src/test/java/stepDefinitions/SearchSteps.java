@@ -1,32 +1,22 @@
 package stepDefinitions;
 
-import foundation.InitProcess;
+import foundation.DriverManager;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import pages.AirbnbHome;
 
 public class SearchSteps {
-    private WebDriver driver;
-    private AirbnbHome airbnbHome;
-    private InitProcess initProcess;
+
+    private AirbnbHome airbnbHome = new AirbnbHome(DriverManager.getDriver());
 
 
-    @Before
-    public void setup() {
-        initProcess = new InitProcess();
-        driver = initProcess.getDriver();
-        airbnbHome = new AirbnbHome(driver);
-    }
-
-
-    @Given("The user is in airbnb home page")
-    public void airbnbHome() {
-        initProcess.createBrowser();
+    @Given("The search panel is being displayed")
+    public void searchPanelDisplayed() {
+        Assert.assertTrue(airbnbHome.getSearchField().isDisplayed());
     }
 
     @When("Fills the search field with {string}")
