@@ -13,7 +13,7 @@ public class Hooks {
     public void setup(){
         WebDriver driver = DriverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-        driver.get("https://www.airbnb.com.br/");
+        driver.get("https://www.airbnb.com");
         driver.manage().window().maximize();
     }
 

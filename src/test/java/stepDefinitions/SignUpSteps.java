@@ -16,32 +16,28 @@ public class SignUpSteps {
     private AirbnbHome airbnbHome = new AirbnbHome(DriverManager.getDriver());
     private AirbnbHost airbnbHost;
 
-    @Given("The user is be a host page")
+    @Given("the user is on the be a host page")
     public void mainNavMenuDisplayed() {
-
-       airbnbHost = airbnbHome.clickOnBecomeHostBtn();
-
+        airbnbHost = airbnbHome.clickOnBecomeHostBtn();
     }
 
-    @When("Clicks on Comece já button")
-    public void clickOnComeceButton() {
+    @When("he clicks on 'Get started' button")
+    public void clickOnGetStartedButton() {
         airbnbHost.getComeceJaButton().click();
 
     }
-    @When("Clicks on Get started button")
-    public void clicks_on_get_started_button() {
-        System.out.println("balbla");
+
+    @When("types a {string} number")
+    public void inputPhoneNumber(String phoneNumber) {
+        airbnbHost.getPhoneField().sendKeys(phoneNumber);
     }
-    @When("Types a '' number")
-    public void inputPhoneNumber() {
-        airbnbHost.getPhoneField().sendKeys("");
-    }
-    @When("Clicks on Continue button")
+
+    @When("clicks on 'Continue' button")
     public void clicksOnContinueButton() {
         airbnbHost.getContinueButton().click();
     }
 
-    @Then("The error message {string} should be displayed")
+    @Then("The an {string} should be displayed")
     public void assertTheErrorMessage(String errorMessage) {
         Assert.assertEquals(errorMessage, airbnbHost.getPhoneErrorMessage().getText());
     }
