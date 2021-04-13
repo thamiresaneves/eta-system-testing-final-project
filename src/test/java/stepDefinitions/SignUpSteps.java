@@ -24,7 +24,6 @@ public class SignUpSteps {
     @When("he clicks on 'Get started' button")
     public void clickOnGetStartedButton() {
         airbnbHost.getComeceJaButton().click();
-
     }
 
     @When("types a {string} number")
@@ -41,5 +40,28 @@ public class SignUpSteps {
     public void assertTheErrorMessage(String errorMessage) {
         Assert.assertEquals(errorMessage, airbnbHost.getPhoneErrorMessage().getText());
     }
+
+    @Given("the user is already logged")
+    public void login() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("he clicks on 'Become a host' button")
+    public void clicksOnBecomeAHostbutton() {
+        airbnbHost.getBecomeAHostButton().click();
+    }
+
+    @When("clicks on 'Next' button")
+    public void clicks_on_button() {
+        airbnbHost.getComeceJaButton().click();
+    }
+
+    @Then("the messages {string} and {string} should be displayed")
+    public void the_messages_and_should_be_displayed(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 }
