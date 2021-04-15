@@ -1,6 +1,5 @@
 package pages;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import foundation.BasePage;
 import helpers.Constants;
 import org.openqa.selenium.By;
@@ -17,6 +16,9 @@ public class AirbnbHost extends BasePage {
     }
     public WebElement getPhoneField() {
         return driver.findElement(By.cssSelector(Constants.PHONE_NUMBER_FIELD));
+    }
+    public WebElement getBecomeAHostButton(){
+        return driver.findElement(By.cssSelector(Constants.BECOME_A_HOST_BUTTON));
     }
 
     public WebElement getContinueButton() {

@@ -8,7 +8,6 @@ Feature: As a user admin I want to sign up using my phone number
     And    types a "<phone>" number
     And    clicks on 'Continue' button
     Then   The an "<error-message>" should be displayed
-
     Examples:
       | phone | error-message                                             |
       |       | Phone number is required.                                 |
