@@ -24,7 +24,6 @@ public class SignUpSteps {
     @When("he clicks on 'Get started' button")
     public void clickOnGetStartedButton() {
         airbnbHost.getComeceJaButton().click();
-
     }
 
     @When("types a {string} number")

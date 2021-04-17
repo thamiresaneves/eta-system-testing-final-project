@@ -8,7 +8,9 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.AirbnbHome;
 
 public class SearchSteps {
@@ -16,23 +18,23 @@ public class SearchSteps {
     private AirbnbHome airbnbHome = new AirbnbHome(DriverManager.getDriver());
 
 
-    @Given("The search panel is being displayed")
+    @Given("the search panel is being displayed")
     public void searchPanelDisplayed() {
         Assert.assertTrue(airbnbHome.getSearchField().isDisplayed());
     }
 
-    @When("Fills the search field with {string}")
+    @When("fills the search field with {string}")
     public void fillsSearchField(String location) throws InterruptedException {
         Thread.sleep(1000);
         airbnbHome.getSearchField().sendKeys(location);
     }
 
-    @When("Clicks on search button")
+    @When("clicks on search button")
     public void clicksOnBtn() {
         airbnbHome.getSearchButton().click();
     }
 
-    @Then("A list with {int} accommodations should be displayed per page")
+    @Then("a list with {int} accommodations should be displayed per page")
     public void displayLocation(int accomodations) {
         Assert.assertEquals(accomodations, airbnbHome.getLocationsList().size());
     }
@@ -71,7 +73,7 @@ public class SearchSteps {
         Assert.assertEquals("1", airbnbHome.getSteeperValue("adults-value").getText());
     }
 
-    @When("Clicks on price button")
+    @When("clicks on price button")
     public void clicksOnPriceButton() throws InterruptedException {
         Thread.sleep(3000);
        airbnbHome.getPriceButton().click();
@@ -85,5 +87,27 @@ public class SearchSteps {
     @When("the clear button should be disabled")
     public void clearButtonDisabled() {
         Assert.assertFalse(airbnbHome.getClearButton().isEnabled());
+    }
+
+    @When("clicks on the check in option")
+    public void clicksOnDateOption() {
+        airbnbHome.getCheckInButton().click();
+    }
+
+    @When("clicks on 'I am flexible' button")
+    public void clicksOnFlexibleOptionButton() {
+        airbnbHome.getFlexibleOption().click();
+    }
+
+    @When("selects more than one month")
+    public void selectMonths() {
+        airbnbHome.getMonthByIndex(0).click();
+        airbnbHome.getMonthByIndex(2).click();
+    }
+
+    @Then("all months selected should be displayed")
+    public void selectedMonthsDisplayed() {
+      Assert.assertTrue(airbnbHome.getMonthsMessage().contains(airbnbHome.getMonthName(0)));
+      Assert.assertTrue(airbnbHome.getMonthsMessage().contains(airbnbHome.getMonthName(2)));
     }
 }
