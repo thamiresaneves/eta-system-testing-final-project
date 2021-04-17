@@ -30,4 +30,12 @@ public class Constants {
     public static final String FILTER_OPTIONS = "button[data-testid*='";
     public static final String CLEAR_ALL_BUTTON = "footer div button";
     public static final String FILTER_OPTIONS_CLEARED = "span[data-testid*='";
+    public static final String SEARCH_EXPERIENCES_BUTTON = "label[for*='EXPERIENCES']";
+    public static final String LANGUAGE_AND_CURRENCY_BUTTON = "button[aria-label*='Language and currency']";
+    public static final String CURRENCY_BUTTON = "[aria-label='Languages'] button:nth-child(2)";
+    public static final String CHOSE_LANGUAGE_BUTTON = "a[href*='locale=";
+    public static final String CURRENCY_EURO_BUTTON = "//div[contains(text(), 'Euro')]";
+    public static final String FOOTER_CURRENCY_INFO = "a[href*='/currency'] span:nth-child(3)";
+    public static final String PLACES_CURRENCY_VALUE = "div[data-testid*='searchResults.experiences'] div + div +div + div span span span";
+
 }

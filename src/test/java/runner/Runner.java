@@ -14,7 +14,5 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class Runner {
-
-
+    
 }
-
