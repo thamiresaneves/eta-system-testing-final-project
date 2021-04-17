@@ -87,7 +87,6 @@ public class AirbnbHome extends BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String script = "document.querySelector" + "(" + "'" + Constants.MAX_PRICE_FIELD + "'" + ").value = " + price;
         js.executeScript(script);
-        driver.findElement(By.cssSelector("[data-testid=\"menuBarPanel-price_range\"]")).click();
     }
 
     public WebElement getClearButton(){
@@ -110,5 +109,9 @@ public class AirbnbHome extends BasePage {
     public WebElement getFiltersOptionsCleared(String filterOption){
         String elementClearedSteeper = Constants.FILTER_OPTIONS_CLEARED + filterOption + "-0-value']";
         return driver.findElement(By.cssSelector(elementClearedSteeper));
+    }
+
+    public WebElement getOnlineExperiencesButton() {
+        return driver.findElement(By.cssSelector(Constants.ONLINE_EXPERIENCES_BUTTON));
     }
 }
