@@ -12,10 +12,16 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.AirbnbHome;
+import pages.ExperiencesResults;
+import pages.Footer;
+import pages.Header;
 
 public class SearchSteps {
 
     private AirbnbHome airbnbHome = new AirbnbHome(DriverManager.getDriver());
+    private Header header = new Header(DriverManager.getDriver());
+    private Footer footer = new Footer(DriverManager.getDriver());
+    private ExperiencesResults experiencesResults = new ExperiencesResults(DriverManager.getDriver());
 
 
     @Given("the search panel is being displayed")
@@ -76,7 +82,7 @@ public class SearchSteps {
     @When("clicks on price button")
     public void clicksOnPriceButton() throws InterruptedException {
         Thread.sleep(3000);
-       airbnbHome.getPriceButton().click();
+        airbnbHome.getPriceButton().click();
     }
 
     @When("fills max price field with {int}")
@@ -135,5 +141,25 @@ public class SearchSteps {
     public void emptyFilters() {
         Assert.assertEquals("0", airbnbHome.getFiltersOptionsCleared("beds").getText());
         Assert.assertEquals("0", airbnbHome.getFiltersOptionsCleared("bathrooms").getText());
+    }
+
+    @When("clicks on experiences")
+    public void clicksOnExperiences() throws InterruptedException  {
+        Thread.sleep(3000);
+        header.getSearchExperiencesButton().click();
+    }
+
+    @When("changes the currency")
+    public void changesCurrency() throws InterruptedException {
+        header.getLanguageAndCurrencyButton().click();
+        header.getCurrencyButton().click();
+        header.getCurrencyEuroButton().click();
+    }
+
+    @Then("the currency should be updated for the experiences prices and on the page footer")
+    public void currencyUpdated() throws InterruptedException {
+        Assert.assertTrue(experiencesResults.getPlacesCurrencyValue().size() > 0);
+        footer.scrollToFooter();
+        Assert.assertEquals("EUR", footer.getCurrencyInfo().getText());
     }
 }

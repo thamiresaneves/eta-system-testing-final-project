@@ -45,3 +45,12 @@ Feature: As a user admin I want to search for a location so I can see all accomm
     And adds a bathrooms
     And clicks on clear all button
     Then all filters applied should be cleared
+
+  @CurrencyBehaviorInsideExperiences
+  Scenario: Changing the currency should update values exhibition
+    Given the search panel is being displayed
+    When clicks on experiences
+    And fills the search field with "João Pessoa"
+    And clicks on search button
+    And changes the currency
+    Then the currency should be updated for the experiences prices and on the page footer

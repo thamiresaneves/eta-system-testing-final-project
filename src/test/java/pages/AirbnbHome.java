@@ -3,15 +3,12 @@ package pages;
 import foundation.BasePage;
 import helpers.Constants;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 
-import javax.print.DocFlavor;
-import javax.sound.midi.Soundbank;
 import java.util.List;
 
 public class AirbnbHome extends BasePage {
@@ -49,7 +46,6 @@ public class AirbnbHome extends BasePage {
 
 
     public WebElement getHomeMenuButton() {
-
         WebDriverWait wait = new WebDriverWait(driver, 5);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(Constants.HOME_MENU_BUTTON)));
         return element;
