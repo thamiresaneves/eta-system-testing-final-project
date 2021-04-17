@@ -7,7 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 
+import javax.print.DocFlavor;
+import javax.sound.midi.Soundbank;
 import java.util.List;
 
 public class AirbnbHome extends BasePage {
@@ -77,5 +81,22 @@ public class AirbnbHome extends BasePage {
     public WebElement getSteeperValue(String steeperType){
         String steeperValue = Constants.STEEPER_VALUE + "'" + steeperType + "'" + "]";
         return driver.findElement(By.cssSelector(steeperValue));
+    }
+
+    public WebElement getPriceButton(){
+        return driver.findElement(By.cssSelector(Constants.PRICE_BUTTON));
+    }
+
+
+
+    public void fillPriceField(int price){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "document.querySelector" + "(" + "'" + Constants.MAX_PRICE_FIELD + "'" + ").value = " + price;
+        js.executeScript(script);
+        driver.findElement(By.cssSelector("[data-testid=\"menuBarPanel-price_range\"]")).click();
+    }
+
+    public WebElement getClearButton(){
+        return driver.findElement(By.cssSelector(Constants.CLEAR_BUTTON));
     }
 }

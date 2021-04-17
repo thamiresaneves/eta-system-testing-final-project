@@ -6,6 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,12 +29,12 @@ public class SearchSteps {
         airbnbHome.getSearchField().sendKeys(location);
     }
 
-    @When("Clicks on button")
+    @When("clicks on search button")
     public void clicksOnBtn() {
         airbnbHome.getSearchButton().click();
     }
 
-    @Then("A list with {int} accommodations should be displayed per page")
+    @Then("a list with {int} accommodations should be displayed per page")
     public void displayLocation(int accomodations) {
         Assert.assertEquals(accomodations, airbnbHome.getLocationsList().size());
     }
@@ -71,6 +73,22 @@ public class SearchSteps {
         Assert.assertEquals("1", airbnbHome.getSteeperValue("adults-value").getText());
     }
 
+    @When("clicks on price button")
+    public void clicksOnPriceButton() throws InterruptedException {
+        Thread.sleep(3000);
+       airbnbHome.getPriceButton().click();
+    }
+
+    @When("fills max price field with {int}")
+    public void fillsMaxPriceField(int price) {
+        airbnbHome.fillPriceField(price);
+    }
+
+    @When("the clear button should be disabled")
+    public void clearButtonDisabled() {
+        Assert.assertFalse(airbnbHome.getClearButton().isEnabled());
+    }
+
     @When("clicks on the check in option")
     public void clicksOnDateOption() {
         airbnbHome.getCheckInButton().click();
@@ -92,6 +110,4 @@ public class SearchSteps {
       Assert.assertTrue(airbnbHome.getMonthsMessage().contains(airbnbHome.getMonthName(0)));
       Assert.assertTrue(airbnbHome.getMonthsMessage().contains(airbnbHome.getMonthName(2)));
     }
-
-
 }

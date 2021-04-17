@@ -17,14 +17,13 @@ public class Constants {
     public static final String STEEPERS = "button[data-testid*=";
     public static final String FIELD_GUESTS_BUTTON = "div[data-testid*='field-guests-button']";
     public static final String STEEPER_VALUE = "span[data-testid*=";
+    public static final String PRICE_BUTTON = "[data-testid='menuItemButton-price_range']";
+    public static final String MAX_PRICE_FIELD = "#price_filter_max";
+    public static final String CLEAR_BUTTON = "[data-testid='filter-panel-clear-button']";
     public static final String BECOME_A_HOST_BUTTON = "public static final String";
     public static final String CHECK_IN_DATE_BUTTON = "div[data-testid*='dates-0']";
     public static final String FLEXIBLE_OPTION = "button#tab--tabs--1";
     public static final String MONTH_LIST = "#chip-group-super_flexible_dates button";
     public static final String MONTHS_SELECTED = "div[data-testid*='flexible_trip_dates'] div + span div div div + div";
     public static final String MONTHS_MESSAGE = "//div[contains(text(), 'Go in')]/div";
-
-
-
-
 }
