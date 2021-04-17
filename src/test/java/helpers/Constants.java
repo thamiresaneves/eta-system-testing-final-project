@@ -26,4 +26,8 @@ public class Constants {
     public static final String MONTH_LIST = "#chip-group-super_flexible_dates button";
     public static final String MONTHS_SELECTED = "div[data-testid*='flexible_trip_dates'] div + span div div div + div";
     public static final String MONTHS_MESSAGE = "//div[contains(text(), 'Go in')]/div";
+    public static final String MORE_FILTERS_BUTTON = "#menuItemButton-dynamicMoreFilters";
+    public static final String FILTER_OPTIONS = "button[data-testid*='";
+    public static final String CLEAR_ALL_BUTTON = "footer div button";
+    public static final String FILTER_OPTIONS_CLEARED = "span[data-testid*='";
 }

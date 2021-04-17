@@ -87,8 +87,6 @@ public class AirbnbHome extends BasePage {
         return driver.findElement(By.cssSelector(Constants.PRICE_BUTTON));
     }
 
-
-
     public void fillPriceField(int price){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String script = "document.querySelector" + "(" + "'" + Constants.MAX_PRICE_FIELD + "'" + ").value = " + price;
@@ -98,5 +96,23 @@ public class AirbnbHome extends BasePage {
 
     public WebElement getClearButton(){
         return driver.findElement(By.cssSelector(Constants.CLEAR_BUTTON));
+    }
+
+    public WebElement getMoreFiltersButton(){
+        return driver.findElement(By.cssSelector(Constants.MORE_FILTERS_BUTTON));
+    }
+
+    public WebElement getFiltersOption(String filterType){
+        String elementSteeper = Constants.FILTER_OPTIONS + filterType + "-0-increase']";
+        return driver.findElement(By.cssSelector(elementSteeper));
+    }
+
+    public WebElement getClearAllButton(){
+        return driver.findElement(By.cssSelector(Constants.CLEAR_ALL_BUTTON));
+    }
+
+    public WebElement getFiltersOptionsCleared(String filterOption){
+        String elementClearedSteeper = Constants.FILTER_OPTIONS_CLEARED + filterOption + "-0-value']";
+        return driver.findElement(By.cssSelector(elementClearedSteeper));
     }
 }

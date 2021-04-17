@@ -34,3 +34,14 @@ Feature: As a user admin I want to search for a location so I can see all accomm
     And clicks on 'I am flexible' button
     And selects more than one month
     Then all months selected should be displayed
+
+  @ClearFilters
+  Scenario: Clicking on 'Clear' inside filters modal should clear all filters
+    Given the search panel is being displayed
+    When fills the search field with "Recife"
+    And clicks on search button
+    When clicks on more filters button
+    And adds a beds
+    And adds a bathrooms
+    And clicks on clear all button
+    Then all filters applied should be cleared
