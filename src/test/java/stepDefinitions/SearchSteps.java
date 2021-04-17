@@ -11,10 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.AirbnbHome;
-import pages.ExperiencesResults;
-import pages.Footer;
-import pages.Header;
+import pages.*;
 
 public class SearchSteps {
 
@@ -22,6 +19,7 @@ public class SearchSteps {
     private Header header = new Header(DriverManager.getDriver());
     private Footer footer = new Footer(DriverManager.getDriver());
     private ExperiencesResults experiencesResults = new ExperiencesResults(DriverManager.getDriver());
+    private OnlineExperiencesResults onlineExperiencesResults = new OnlineExperiencesResults(DriverManager.getDriver());
 
 
     @Given("the search panel is being displayed")
@@ -164,7 +162,28 @@ public class SearchSteps {
     }
 
     @Then("the {string} message should be displayed")
-    public void noResultsMessageDisplayed(String message) throws InterruptedException {
+    public void noResultsMessageDisplayed(String message) {
         Assert.assertEquals(message, experiencesResults.getNoResultsMessage().getText());
     }
+
+    @When("clicks on online experiences")
+    public void clickOnOnlineExperiences() {
+        airbnbHome.getOnlineExperiencesButton().click();
+    }
+
+    @When("clicking on the first experience")
+    public void clickOnFirstExperience() {
+        onlineExperiencesResults.getOnlineExperiencesList().get(0).click();
+    }
+
+    @When("clicking on save button")
+    public void clickOnSave() throws InterruptedException {
+        onlineExperiencesResults.clickOnSaveButton();
+    }
+
+    @Then("the login panel should be displayed")
+    public void loginPanelDisplayed() {
+        Assert.assertTrue(onlineExperiencesResults.getLoginPanel().isDisplayed());
+    }
+
 }

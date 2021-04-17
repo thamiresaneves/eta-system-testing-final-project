@@ -26,10 +26,6 @@ public class Header extends BasePage{
         return driver.findElement(By.cssSelector(Constants.CURRENCY_BUTTON));
     }
 
-    public WebElement getChoseLanguageButton() {
-        return driver.findElement(By.cssSelector(Constants.CHOSE_LANGUAGE_BUTTON));
-    }
-
     public WebElement getCurrencyEuroButton() throws InterruptedException {
         Thread.sleep(1000);
         return driver.findElement(By.xpath(Constants.CURRENCY_EURO_BUTTON));

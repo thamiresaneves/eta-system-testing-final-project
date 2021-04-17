@@ -62,3 +62,11 @@ Feature: As a user admin I want to search for a location so I can see all accomm
     And fills the search field with "Pyongyang"
     And clicks on search button
     Then the "No results found" message should be displayed
+
+  @SaveOnlineExperience
+  Scenario: Should not be possible to save an online experience without being logged into the site
+    Given the search panel is being displayed
+    When clicks on online experiences
+    And clicking on the first experience
+    And clicking on save button
+    Then the login panel should be displayed
