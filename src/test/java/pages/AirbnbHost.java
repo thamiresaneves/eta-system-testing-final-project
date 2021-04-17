@@ -1,6 +1,5 @@
 package pages;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import foundation.BasePage;
 import helpers.Constants;
 import org.openqa.selenium.By;

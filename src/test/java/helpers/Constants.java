@@ -17,7 +17,7 @@ public class Constants {
     public static final String STEEPERS = "button[data-testid*=";
     public static final String FIELD_GUESTS_BUTTON = "div[data-testid*='field-guests-button']";
     public static final String STEEPER_VALUE = "span[data-testid*=";
-
-
-
+    public static final String PRICE_BUTTON = "[data-testid='menuItemButton-price_range']";
+    public static final String MAX_PRICE_FIELD = "#price_filter_max";
+    public static final String CLEAR_BUTTON = "[data-testid='filter-panel-clear-button']";
 }

@@ -6,6 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import pages.AirbnbHome;
 
@@ -25,7 +27,7 @@ public class SearchSteps {
         airbnbHome.getSearchField().sendKeys(location);
     }
 
-    @When("Clicks on button")
+    @When("Clicks on search button")
     public void clicksOnBtn() {
         airbnbHome.getSearchButton().click();
     }
@@ -69,4 +71,19 @@ public class SearchSteps {
         Assert.assertEquals("1", airbnbHome.getSteeperValue("adults-value").getText());
     }
 
+    @When("Clicks on price button")
+    public void clicksOnPriceButton() throws InterruptedException {
+        Thread.sleep(3000);
+       airbnbHome.getPriceButton().click();
+    }
+
+    @When("fills max price field with {int}")
+    public void fillsMaxPriceField(int price) {
+        airbnbHome.fillPriceField(price);
+    }
+
+    @When("the clear button should be disabled")
+    public void clearButtonDisabled() {
+        Assert.assertFalse(airbnbHome.getClearButton().isEnabled());
+    }
 }

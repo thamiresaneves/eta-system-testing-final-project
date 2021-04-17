@@ -10,7 +10,7 @@ public class DriverManager {
     private static WebDriver driver;
 
     public static WebDriver getDriver(){
-        System.setProperty("webdriver.chrome.driver", "/home/dereck/Documents/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
 
         if(driver == null){
             driver = new ChromeDriver();
