@@ -54,3 +54,11 @@ Feature: As a user admin I want to search for a location so I can see all accomm
     And clicks on search button
     And changes the currency
     Then the currency should be updated for the experiences prices and on the page footer
+
+  @SearchForALocationWithoutExperiences
+  Scenario: Searching for a place without experiences should display No Results message
+    Given the search panel is being displayed
+    When clicks on experiences
+    And fills the search field with "Pyongyang"
+    And clicks on search button
+    Then the "No results found" message should be displayed

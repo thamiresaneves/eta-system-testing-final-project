@@ -37,5 +37,5 @@ public class Constants {
     public static final String CURRENCY_EURO_BUTTON = "//div[contains(text(), 'Euro')]";
     public static final String FOOTER_CURRENCY_INFO = "a[href*='/currency'] span:nth-child(3)";
     public static final String PLACES_CURRENCY_VALUE = "div[data-testid*='searchResults.experiences'] div + div +div + div span span span";
-
+    public static final String NO_RESULTS_MESSAGE = "#site-content h1";
 }

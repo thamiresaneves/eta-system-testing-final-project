@@ -162,4 +162,9 @@ public class SearchSteps {
         footer.scrollToFooter();
         Assert.assertEquals("EUR", footer.getCurrencyInfo().getText());
     }
+
+    @Then("the {string} message should be displayed")
+    public void noResultsMessageDisplayed(String message) throws InterruptedException {
+        Assert.assertEquals(message, experiencesResults.getNoResultsMessage().getText());
+    }
 }
