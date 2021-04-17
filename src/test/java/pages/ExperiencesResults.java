@@ -18,4 +18,8 @@ public class ExperiencesResults extends BasePage {
     public List<WebElement> getPlacesCurrencyValue() {
         return driver.findElements(By.cssSelector(Constants.PLACES_CURRENCY_VALUE));
     }
+
+    public WebElement getNoResultsMessage() {
+        return driver.findElement(By.cssSelector(Constants.NO_RESULTS_MESSAGE));
+    }
 }
