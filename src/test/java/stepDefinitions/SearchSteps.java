@@ -110,4 +110,30 @@ public class SearchSteps {
       Assert.assertTrue(airbnbHome.getMonthsMessage().contains(airbnbHome.getMonthName(0)));
       Assert.assertTrue(airbnbHome.getMonthsMessage().contains(airbnbHome.getMonthName(2)));
     }
+
+    @When("clicks on more filters button")
+    public void clicksOnMoreFiltersButton() {
+       airbnbHome.getMoreFiltersButton().click();
+    }
+
+    @When("adds a beds")
+    public void addsABeds() {
+        airbnbHome.getFiltersOption("beds").click();
+    }
+
+    @When("adds a bathrooms")
+    public void addsABathrooms() {
+        airbnbHome.getFiltersOption("bathrooms").click();
+    }
+
+    @When("clicks on clear all button")
+    public void clicksOnClearAllButton() {
+        airbnbHome.getClearAllButton().click();
+    }
+
+    @Then("all filters applied should be cleared")
+    public void emptyFilters() {
+        Assert.assertEquals("0", airbnbHome.getFiltersOptionsCleared("beds").getText());
+        Assert.assertEquals("0", airbnbHome.getFiltersOptionsCleared("bathrooms").getText());
+    }
 }
