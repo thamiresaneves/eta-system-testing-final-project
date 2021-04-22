@@ -46,7 +46,7 @@ public class OnlineExperiencesResults extends BasePage {
                 driver.switchTo().window(newWindowHandle);
                 break;
             } else {
-                sleep(2000);
+                sleep(Constants.TWO_SECONDS);
             }
         }
         if (cHandle == newWindowHandle) {

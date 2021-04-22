@@ -19,10 +19,8 @@ public class Footer extends BasePage{
 
 
     public void scrollToFooter() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(Constants.ONE_SECOND);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
-
-
 }

@@ -17,18 +17,17 @@ public class Header extends BasePage{
     }
 
     public WebElement getLanguageAndCurrencyButton() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(Constants.ONE_SECOND);
         return driver.findElement(By.cssSelector(Constants.LANGUAGE_AND_CURRENCY_BUTTON));
     }
 
     public WebElement getCurrencyButton() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(Constants.ONE_SECOND);
         return driver.findElement(By.cssSelector(Constants.CURRENCY_BUTTON));
     }
 
     public WebElement getCurrencyEuroButton() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(Constants.ONE_SECOND);
         return driver.findElement(By.xpath(Constants.CURRENCY_EURO_BUTTON));
     }
-
 }

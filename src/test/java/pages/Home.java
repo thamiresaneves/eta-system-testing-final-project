@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class AirbnbHome extends BasePage {
-    public AirbnbHome(WebDriver driver) {
+public class Home extends BasePage {
+    public Home(WebDriver driver) {
         super(driver);
     }
 
@@ -32,11 +32,11 @@ public class AirbnbHome extends BasePage {
         return driver.findElement(By.cssSelector(Constants.FLEXIBLE_OPTION));
     }
 
-    public WebElement getMonthByIndex(int monthIndex){
+    public WebElement getMonthByIndex(int monthIndex) {
        return driver.findElements(By.cssSelector(Constants.MONTH_LIST)).get(monthIndex);
     }
 
-    public String getMonthName(int monthIndex){
+    public String getMonthName(int monthIndex) {
         return driver.findElements(By.cssSelector(Constants.MONTHS_SELECTED)).get(monthIndex).getText();
     }
 
@@ -44,19 +44,11 @@ public class AirbnbHome extends BasePage {
         return driver.findElement(By.xpath(Constants.MONTHS_MESSAGE)).getText();
     }
 
-
-    public WebElement getHomeMenuButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(Constants.HOME_MENU_BUTTON)));
-        return element;
-
-    }
-
-    public AirbnbHost clickOnBecomeHostBtn() {
+    public Host clickOnBecomeHostBtn() {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(Constants.BE_A_HOST_BUTTON)));
         element.click();
-        return new AirbnbHost(driver);
+        return new Host(driver);
     }
 
     public List<WebElement> getLocationsList() {
@@ -69,12 +61,12 @@ public class AirbnbHome extends BasePage {
         return element;
     }
 
-    public WebElement getSteeper(String steeperType){
+    public WebElement getSteeper(String steeperType) {
         String steeper = Constants.STEEPERS + "'" + steeperType + "'" + "]";
         return driver.findElement(By.cssSelector(steeper));
     }
 
-    public WebElement getSteeperValue(String steeperType){
+    public WebElement getSteeperValue(String steeperType) {
         String steeperValue = Constants.STEEPER_VALUE + "'" + steeperType + "'" + "]";
         return driver.findElement(By.cssSelector(steeperValue));
     }
@@ -83,7 +75,7 @@ public class AirbnbHome extends BasePage {
         return driver.findElement(By.cssSelector(Constants.PRICE_BUTTON));
     }
 
-    public void fillPriceField(int price){
+    public void fillPriceField(int price) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String script = "document.querySelector" + "(" + "'" + Constants.MAX_PRICE_FIELD + "'" + ").value = " + price;
         js.executeScript(script);
@@ -93,11 +85,11 @@ public class AirbnbHome extends BasePage {
         return driver.findElement(By.cssSelector(Constants.CLEAR_BUTTON));
     }
 
-    public WebElement getMoreFiltersButton(){
+    public WebElement getMoreFiltersButton() {
         return driver.findElement(By.cssSelector(Constants.MORE_FILTERS_BUTTON));
     }
 
-    public WebElement getFiltersOption(String filterType){
+    public WebElement getFiltersOption(String filterType) {
         String elementSteeper = Constants.FILTER_OPTIONS + filterType + "-0-increase']";
         return driver.findElement(By.cssSelector(elementSteeper));
     }
@@ -106,7 +98,7 @@ public class AirbnbHome extends BasePage {
         return driver.findElement(By.cssSelector(Constants.CLEAR_ALL_BUTTON));
     }
 
-    public WebElement getFiltersOptionsCleared(String filterOption){
+    public WebElement getFiltersOptionsCleared(String filterOption) {
         String elementClearedSteeper = Constants.FILTER_OPTIONS_CLEARED + filterOption + "-0-value']";
         return driver.findElement(By.cssSelector(elementClearedSteeper));
     }
