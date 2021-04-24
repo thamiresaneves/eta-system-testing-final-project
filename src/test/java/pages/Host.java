@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AirbnbHost extends BasePage {
-    public AirbnbHost(WebDriver driver) {
+public class Host extends BasePage {
+    public Host(WebDriver driver) {
         super(driver);
     }
 
@@ -16,9 +16,6 @@ public class AirbnbHost extends BasePage {
     }
     public WebElement getPhoneField() {
         return driver.findElement(By.cssSelector(Constants.PHONE_NUMBER_FIELD));
-    }
-    public WebElement getBecomeAHostButton(){
-        return driver.findElement(By.cssSelector(Constants.BECOME_A_HOST_BUTTON));
     }
 
     public WebElement getContinueButton() {

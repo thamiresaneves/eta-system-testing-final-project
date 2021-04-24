@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/resources/features",
         glue = "stepDefinitions",
-        tags = "@SignUpWithPhoneField",
         monochrome = false,
         plugin = {"pretty"},
         snippets = CucumberOptions.SnippetType.CAMELCASE

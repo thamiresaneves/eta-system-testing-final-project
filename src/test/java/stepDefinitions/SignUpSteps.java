@@ -2,43 +2,41 @@
 package stepDefinitions;
 
 import foundation.DriverManager;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import pages.AirbnbHome;
-import pages.AirbnbHost;
+import pages.Home;
+import pages.Host;
 
 public class SignUpSteps {
 
-    private AirbnbHome airbnbHome = new AirbnbHome(DriverManager.getDriver());
-    private AirbnbHost airbnbHost;
+    private Home home = new Home(DriverManager.getDriver());
+    private Host host;
 
     @Given("the user is on the be a host page")
     public void mainNavMenuDisplayed() {
-        airbnbHost = airbnbHome.clickOnBecomeHostBtn();
+        host = home.clickOnBecomeHostBtn();
     }
 
-    @When("he clicks on 'Get started' button")
+    @When("clicks on 'Get started' button")
     public void clickOnGetStartedButton() {
-        airbnbHost.getComeceJaButton().click();
+        host.getComeceJaButton().click();
     }
 
     @When("types a {string} number")
     public void inputPhoneNumber(String phoneNumber) {
-        airbnbHost.getPhoneField().sendKeys(phoneNumber);
+        host.getPhoneField().sendKeys(phoneNumber);
     }
 
     @When("clicks on 'Continue' button")
     public void clicksOnContinueButton() {
-        airbnbHost.getContinueButton().click();
+        host.getContinueButton().click();
     }
 
-    @Then("The an {string} should be displayed")
+    @Then("an {string} should be displayed")
     public void assertTheErrorMessage(String errorMessage) {
-        Assert.assertEquals(errorMessage, airbnbHost.getPhoneErrorMessage().getText());
+        Assert.assertEquals(errorMessage, host.getPhoneErrorMessage().getText());
     }
 
 }
